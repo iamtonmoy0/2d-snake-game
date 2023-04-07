@@ -1,0 +1,37 @@
+/* root css */
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+body{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #89cccc;
+	background-image: url('../image/png-transparent-snakes-and-ladders-game-android-animated-snake-s-text-video-game-grass-removebg-preview.png');
+	height: 100vh;
+	background-repeat: no-repeat;
+}
+
+.wrapper{
+	width: 65vmin;
+	height: 70vmin;
+	background: #293447;
+	border-radius: 5px;
+}
+/* game board element */
+.game-details{
+	color:gray;
+	font-size: 1.2rem;
+	font-weight: 500;
+	padding: 20px 27px;
+	display: flex;
+	justify-content:space-between;
+}
+.game-board{
+	height: 100%;
+	width: 100%;
+	background: #212837;
+}
