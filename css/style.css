@@ -16,6 +16,8 @@ body{
 }
 
 .wrapper{
+	display: flex;
+	flex-direction: column;
 	width: 65vmin;
 	height: 70vmin;
 	background: #293447;
@@ -34,4 +36,6 @@ body{
 	height: 100%;
 	width: 100%;
 	background: #212837;
+	display: grid;
+	grid-template: repeat(30,1fr)/repeat(30,1fr);
 }
