@@ -1,25 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.css">
-	<title>Snake game</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body>
-<div class="wrapper">
-	<div class="game-details">
+<body class=" flex justify-center bg-emerald-300 ">
+  <div class="container h-96 w-1/3 mt-16 " id="container">
+	<div class="container bg-slate-900" id="game-details">
 		<span class="score">Score:10</span>
 		<span class="high-score">High Score:40</span>
 	</div>
-	<div class="game-board">
+	<div id="game-board">
 		
 	</div>
-</div>	
 
 
-
+	<!-- script -->
 	<script src="./js/script.js"></script>
+</div>	
 </body>
 </html>
