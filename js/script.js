@@ -1,10 +1,16 @@
 const gameBoard = document.getElementById('game-board')
+const scoreCount =document.getElementById('score')
+const bestScore=document.getElementById('high-score')
+let score =0;
 let scaleX, scaleY;
 let gameOver=false;
 let snakeBody = [];
 let intervalID;
 let snakeX = 10,
 	snakeY = 16;
+	let highScore= localStorage.getItem("high-score")||0;
+	bestScore.innerText=`High Score: ${highScore}`
+
 // velocity
 let velocityX = 0,
 	velocityY = 0;
@@ -21,17 +27,17 @@ const handleGameOver=()=>{
 	location.reload()
 }
 const changeDir = (e) => {
-	if (e.key === "ArrowUp") {
+	if (e.key === "ArrowUp" && velocityY!=1) {
 		velocityX = 0;
 		velocityY = -1;
-	} else if (e.key === "ArrowDown") {
+	} else if (e.key === "ArrowDown" && velocityY!=-1) {
 		velocityX = 0;
 		velocityY = 1;
-	} else if (e.key === "ArrowRight") {
+	} else if (e.key === "ArrowRight" && velocityX!=-1) {
 		velocityX = 1;
 		velocityY = 0;
 	}
-	if (e.key === "ArrowLeft") {
+	if (e.key === "ArrowLeft" && velocityX!=1) {
 		velocityX = -1;
 		velocityY = 0;
 	}
@@ -43,6 +49,10 @@ const initGame = () => {
 	if (snakeX == scaleX && snakeY == scaleY) {
 		snakeFood()
 		snakeBody.push([scaleX, scaleY])
+		score++;
+		highScore= score>=highScore?score:highScore;
+		localStorage.setItem("high-score",highScore);
+		scoreCount.innerText=`Score ${score}`
 		
 	}
 	snakeBody[0] = [snakeX, snakeY];
@@ -56,7 +66,13 @@ const initGame = () => {
 		gameOver=true;
 	}
 	for (let i = 0; i < snakeBody.length; i++) {
+	
 		foodHtml += `<div id="head" style="grid-area:${snakeBody[i][1]}/${snakeBody[i][0]}"> </div>`;
+		// if snake bite itself
+		// if (i !== 0 && snakeBody[0][1] === snakeBody[0][0] && snakeBody[0][0] === snakeBody[i][0]) {
+			// gameOver=true;
+			
+		// }
 	}
 	foodHtml += `<div id="snake" style="grid-area:${snakeY}/${snakeX}"> </div>`;
 
